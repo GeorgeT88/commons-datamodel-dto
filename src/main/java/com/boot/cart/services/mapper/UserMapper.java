@@ -21,7 +21,9 @@ public class UserMapper {
 				.setEmail(user.getEmail())
 				.setDeliveryAddress(user.getDeliveryAddress())
 				.setUserOrder(checkUserAge(user.getBirthDate()))
+				.setRole(user.getRole())
 				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()));
+		        
 	}
 
 	private static boolean checkUserAge(LocalDate birthday) {
@@ -43,6 +45,7 @@ public class UserMapper {
 				.setPhoneNumber(userDto.getPhoneNumber())
 				.setDeliveryAddress(userDto.getDeliveryAddress())
 				.setEmail(userDto.getEmail())
+				.setRole(userDto.getRole())
 				.setFavoriteProductList(ProductMapper.dtoToProductEntityList(userDto.getFavoriteProductList()));
 	}
 	
@@ -58,6 +61,7 @@ public class UserMapper {
 				.setPhoneNumber(userDto.getPhoneNumber())
 				.setDeliveryAddress(userDto.getDeliveryAddress())
 				.setEmail(userDto.getEmail())
+				.setRole(userDto.getRole())
 				.setFavoriteProductList(ProductMapper.dtoToProductEntityList(userDto.getFavoriteProductList()));
 	}
 	
@@ -72,6 +76,7 @@ public class UserMapper {
 				.setPhoneNumber(user.getPhoneNumber())
 				.setDeliveryAddress(user.getDeliveryAddress())
 				.setEmail(user.getEmail())
+				.setRole(userDto.getRole())
 				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()));
                
 	}

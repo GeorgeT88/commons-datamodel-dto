@@ -35,5 +35,7 @@ public class UserDTO {
 	// userOrder : boolean--- user can order if he is over 18 years
 	private boolean userOrder;
 	
+	private String role;
+			
 	private Set<ProductDTO> favoriteProductList;
 }
