@@ -11,24 +11,35 @@ import com.boot.services.model.Product;
 public class ProductMapper {
 
 	public static ProductDTO ProductEntityToDto(Product product) {
-		return new ProductDTO().setId(product.getId()).setProductName(product.getProductName())
-				.setProductDescription(product.getProductDescription()).setProductPrice(product.getProductPrice())
-				.setProductPhotoLink(product.getProductPhotoLink()).setProductCategory(product.getProductCategory())
+		return new ProductDTO()
+				.setId(product.getId())
+				.setProductName(product.getProductName())
+				.setProductDescription(product.getProductDescription())
+				.setProductPrice(product.getProductPrice())
+				.setProductPhotoLink(product.getProductPhotoLink())
+				.setProductCategory(product.getProductCategory())
 				.setProductStock(product.getProductStock());
 	}
 
 	public static Product DtoToProductEntity(ProductDTO productDto) {
-		return new Product().setId(productDto.getId()).setProductName(productDto.getProductName())
-				.setProductDescription(productDto.getProductDescription()).setProductPrice(productDto.getProductPrice())
+		return new Product()
+				.setId(productDto.getId())
+				.setProductName(productDto.getProductName())
+				.setProductDescription(productDto.getProductDescription())
+				.setProductPrice(productDto.getProductPrice())
 				.setProductPhotoLink(productDto.getProductPhotoLink())
-				.setProductCategory(productDto.getProductCategory()).setProductStock(productDto.getProductStock());
+				.setProductCategory(productDto.getProductCategory())
+				.setProductStock(productDto.getProductStock());
 	}
 
 	public static Product updateDtoToProductEntity(Product product, ProductDTO productDto) {
-		return product.setId(productDto.getId()).setProductName(productDto.getProductName())
-				.setProductDescription(productDto.getProductDescription()).setProductPrice(productDto.getProductPrice())
+		return product.setId(productDto.getId())
+				.setProductName(productDto.getProductName())
+				.setProductDescription(productDto.getProductDescription())
+				.setProductPrice(productDto.getProductPrice())
 				.setProductPhotoLink(productDto.getProductPhotoLink())
-				.setProductCategory(productDto.getProductCategory()).setProductStock(productDto.getProductStock());
+				.setProductCategory(productDto.getProductCategory())
+				.setProductStock(productDto.getProductStock());
 	}
 
 	public static List<ProductDTO> productEntityToDtoList(List<Product> productList) {
