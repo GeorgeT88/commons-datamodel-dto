@@ -22,7 +22,8 @@ public class UserMapper {
 				.setDeliveryAddress(user.getDeliveryAddress())
 				.setUserOrder(checkUserAge(user.getBirthDate()))
 				.setRole(user.getRole())
-				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()));
+				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()))
+				.setEnabled(user.isEnabled());
 		        
 	}
 
@@ -45,7 +46,8 @@ public class UserMapper {
 				.setDeliveryAddress(userDto.getDeliveryAddress())
 				.setEmail(userDto.getEmail())
 				.setRole(userDto.getRole())
-				.setFavoriteProductList(ProductMapper.dtoToProductEntityList(userDto.getFavoriteProductList()));
+				.setFavoriteProductList(ProductMapper.dtoToProductEntityList(userDto.getFavoriteProductList()))
+				.setEnabled(userDto.isEnabled());
 	}
 	
 	
@@ -61,7 +63,8 @@ public class UserMapper {
 				.setDeliveryAddress(userDto.getDeliveryAddress())
 				.setEmail(userDto.getEmail())
 				.setRole(userDto.getRole())
-				.setFavoriteProductList(ProductMapper.dtoToProductEntityList(userDto.getFavoriteProductList()));
+				.setFavoriteProductList(ProductMapper.dtoToProductEntityList(userDto.getFavoriteProductList()))
+				.setEnabled(userDto.isEnabled());
 	}
 	
 	public static UserDTO updateUserEntityToDto(User user, UserDTO userDto) {
@@ -76,7 +79,8 @@ public class UserMapper {
 				.setDeliveryAddress(user.getDeliveryAddress())
 				.setEmail(user.getEmail())
 				.setRole(userDto.getRole())
-				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()));
+				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()))
+	            .setEnabled(userDto.isEnabled());
                
 	}
 

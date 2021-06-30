@@ -38,4 +38,6 @@ public class UserDTO {
 	private String role;
 			
 	private Set<ProductDTO> favoriteProductList;
+	
+	private boolean isEnabled;
 }
