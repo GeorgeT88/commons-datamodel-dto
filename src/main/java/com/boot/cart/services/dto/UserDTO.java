@@ -39,5 +39,5 @@ public class UserDTO {
 			
 	private Set<ProductDTO> favoriteProductList;
 	
-	private boolean isEnabled;
+	private boolean isActivated;
 }
