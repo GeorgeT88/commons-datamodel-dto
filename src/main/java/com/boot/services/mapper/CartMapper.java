@@ -25,7 +25,7 @@ public class CartMapper {
 				.setTotal(cartDto.getTotal()).setLastUpdatedOn(cartDto.getCompletedOn());
 	}
 
-	public static Cart updateDtoToProductEntity(Cart cart, CartDTO cartDto) {
+	public static Cart updateDtoToCartEntity(Cart cart, CartDTO cartDto) {
 		return cart.setId(cartDto.getId()).setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
 				.setProductList(ProductMapper.dtoToProductEntityList(cartDto.getProductList()))
 				.setTotal(cartDto.getTotal()).setLastUpdatedOn(cartDto.getCompletedOn());

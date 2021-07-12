@@ -13,7 +13,7 @@ import com.boot.services.model.Order;
 
 public class OrderMapper {
 
-	public static OrderDTO cartEntityToDto(Order order) {
+	public static OrderDTO orderEntityToDto(Order order) {
 		return new OrderDTO()
 				.setId(order.getId())
 				.setUser(UserMapper.UserEntityToDto(order.getUser()))
@@ -23,7 +23,7 @@ public class OrderMapper {
 				.setCompletedOn(order.getLastUpdatedOn());
 	}
 
-	public static Order dtoToCartEntity(OrderDTO orderDto) {
+	public static Order dtoToOrderEntity(OrderDTO orderDto) {
 		return new Order()
 				.setId(orderDto.getId())
 				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
@@ -33,7 +33,7 @@ public class OrderMapper {
 				.setLastUpdatedOn(orderDto.getCompletedOn());
 	}
 
-	public static Order updateDtoToProductEntity(Order order, OrderDTO orderDto) {
+	public static Order updateDtoToOrderEntity(Order order, OrderDTO orderDto) {
 		return order
 				.setId(orderDto.getId())
 				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
@@ -43,20 +43,20 @@ public class OrderMapper {
 				.setLastUpdatedOn(orderDto.getCompletedOn());
 	}
 
-	public static Set<OrderDTO> cartEntityToDtoList(List<Order> orderList) {
+	public static Set<OrderDTO> orderEntityToDtoList(List<Order> orderList) {
 
 		Set<OrderDTO> orderDTOList = new HashSet<>();
 
-		orderList.stream().forEach(o -> orderDTOList.add(OrderMapper.cartEntityToDto(o)));
+		orderList.stream().forEach(o -> orderDTOList.add(OrderMapper.orderEntityToDto(o)));
 
 		return orderDTOList;
 	}
 
-	public static Set<Order> dtoToCartEntityList(List<OrderDTO> orderDTOList) {
+	public static Set<Order> dtoToOrderEntityList(List<OrderDTO> orderDTOList) {
 
 		Set<Order> orderList = new HashSet<>();
 
-		orderDTOList.stream().forEach(oDTO -> orderList.add(OrderMapper.dtoToCartEntity(oDTO)));
+		orderDTOList.stream().forEach(oDTO -> orderList.add(OrderMapper.dtoToOrderEntity(oDTO)));
 
 		return orderList;
 	}
