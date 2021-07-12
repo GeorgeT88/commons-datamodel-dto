@@ -1,4 +1,4 @@
-package com.boot.cart.services.dto;
+package com.boot.services.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

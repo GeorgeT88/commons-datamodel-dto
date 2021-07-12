@@ -1,11 +1,11 @@
-package com.boot.cart.services.mapper;
+package com.boot.services.mapper;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.boot.cart.services.dto.ProductDTO;
+import com.boot.services.dto.ProductDTO;
 import com.boot.services.model.Product;
 
 public class ProductMapper {
