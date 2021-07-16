@@ -16,6 +16,7 @@ public class OrderMapper {
 	public static OrderDTO orderEntityToDto(Order order) {
 		return new OrderDTO()
 				.setId(order.getId())
+				.setUuid(order.getUuid())
 				.setUser(UserMapper.UserEntityToDto(order.getUser()))
 				.setStatus(order.getStatus())
 				.setProductList(ProductMapper.productEntityToDtoList(order.getProductList()))
@@ -26,6 +27,7 @@ public class OrderMapper {
 	public static Order dtoToOrderEntity(OrderDTO orderDto) {
 		return new Order()
 				.setId(orderDto.getId())
+				.setUuid(orderDto.getUuid())
 				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
 				.setStatus(orderDto.getStatus())
 				.setProductList(ProductMapper.dtoToProductEntityList(orderDto.getProductList()))
@@ -35,7 +37,8 @@ public class OrderMapper {
 
 	public static Order updateDtoToOrderEntity(Order order, OrderDTO orderDto) {
 		return order
-				.setId(orderDto.getId())
+				.setId(orderDto.getId())	
+				.setUuid(orderDto.getUuid())
 				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
 				.setStatus(orderDto.getStatus())
 				.setProductList(ProductMapper.dtoToProductEntityList(orderDto.getProductList()))

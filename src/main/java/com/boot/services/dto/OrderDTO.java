@@ -2,12 +2,14 @@ package com.boot.services.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
+
+import com.boot.services.model.OrderStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import com.boot.services.model.OrderStatus;
 
 @Data
 @Accessors(chain = true)
@@ -16,6 +18,8 @@ import com.boot.services.model.OrderStatus;
 public class OrderDTO {
 
 	private long id;
+	
+	private UUID uuid;
 
 	private UserDTO user;
 	
