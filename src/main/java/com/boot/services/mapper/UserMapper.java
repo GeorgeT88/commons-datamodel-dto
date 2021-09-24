@@ -14,7 +14,6 @@ public class UserMapper {
 				.setId(user.getId())
 				.setFirstName(user.getFirstName())
 				.setLastName(user.getLastName())
-				.setUserName(user.getUserName())
 				.setBirthDate(user.getBirthDate())
 				.setPassword(user.getPassword())
 				.setPhoneNumber(user.getPhoneNumber())
@@ -39,7 +38,6 @@ public class UserMapper {
 				.setId(userDto.getId())
 				.setFirstName(userDto.getFirstName())
 				.setLastName(userDto.getLastName())
-				.setUserName(userDto.getUserName())
 				.setBirthDate(userDto.getBirthDate())
 				.setPassword(userDto.getPassword())
 				.setPhoneNumber(userDto.getPhoneNumber())
@@ -56,7 +54,6 @@ public class UserMapper {
 				.setId(userDto.getId())
 				.setFirstName(userDto.getFirstName())
 				.setLastName(userDto.getLastName())
-				.setUserName(userDto.getUserName())
 				.setBirthDate(userDto.getBirthDate())
 				.setPassword(userDto.getPassword())
 				.setPhoneNumber(userDto.getPhoneNumber())
@@ -72,7 +69,6 @@ public class UserMapper {
 				.setId(user.getId())
 				.setFirstName(user.getFirstName())
 				.setLastName(user.getLastName())
-				.setUserName(user.getUserName())
 				.setBirthDate(user.getBirthDate())
 				.setPassword(user.getPassword())
 				.setPhoneNumber(user.getPhoneNumber())
@@ -80,8 +76,7 @@ public class UserMapper {
 				.setEmail(user.getEmail())
 				.setRole(userDto.getRole())
 				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()))
-	            .setActivated(userDto.isActivated());
-               
+	            .setActivated(userDto.isActivated());            
 	}
 
 
