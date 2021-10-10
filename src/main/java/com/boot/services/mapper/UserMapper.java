@@ -1,8 +1,5 @@
 package com.boot.services.mapper;
 
-import java.time.LocalDate;
-import java.time.Period;
-
 import com.boot.services.dto.UserDTO;
 import com.boot.services.model.User;
 
@@ -14,23 +11,17 @@ public class UserMapper {
 				.setId(user.getId())
 				.setFirstName(user.getFirstName())
 				.setLastName(user.getLastName())
-				.setBirthDate(user.getBirthDate())
 				.setPassword(user.getPassword())
 				.setPhoneNumber(user.getPhoneNumber())
 				.setEmail(user.getEmail())
 				.setDeliveryAddress(user.getDeliveryAddress())
-				.setUserOrder(checkUserAge(user.getBirthDate()))
 				.setRole(user.getRole())
 				.setFavoriteProductList(ProductMapper.productEntityToDtoList(user.getFavoriteProductList()))
 				.setActivated(user.isActivated());
 		        
 	}
 
-	private static boolean checkUserAge(LocalDate birthday) {
-		LocalDate currentDate = LocalDate.now();
-		Period p = Period.between(birthday,currentDate );
-		return p.getYears() >= 18 ? true : false;
-	}
+
 
 	
 	public static User DtoToUserEntity(UserDTO userDto) {
@@ -38,7 +29,6 @@ public class UserMapper {
 				.setId(userDto.getId())
 				.setFirstName(userDto.getFirstName())
 				.setLastName(userDto.getLastName())
-				.setBirthDate(userDto.getBirthDate())
 				.setPassword(userDto.getPassword())
 				.setPhoneNumber(userDto.getPhoneNumber())
 				.setDeliveryAddress(userDto.getDeliveryAddress())
@@ -54,7 +44,6 @@ public class UserMapper {
 				.setId(userDto.getId())
 				.setFirstName(userDto.getFirstName())
 				.setLastName(userDto.getLastName())
-				.setBirthDate(userDto.getBirthDate())
 				.setPassword(userDto.getPassword())
 				.setPhoneNumber(userDto.getPhoneNumber())
 				.setDeliveryAddress(userDto.getDeliveryAddress())
@@ -69,7 +58,6 @@ public class UserMapper {
 				.setId(user.getId())
 				.setFirstName(user.getFirstName())
 				.setLastName(user.getLastName())
-				.setBirthDate(user.getBirthDate())
 				.setPassword(user.getPassword())
 				.setPhoneNumber(user.getPhoneNumber())
 				.setDeliveryAddress(user.getDeliveryAddress())
