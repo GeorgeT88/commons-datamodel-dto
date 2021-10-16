@@ -1,6 +1,5 @@
 package com.boot.services.dto;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -19,8 +18,6 @@ public class UserDTO {
 	private String firstName;
 
 	private String lastName;
-
-	private LocalDate birthDate;
 
 	private String password;
 
