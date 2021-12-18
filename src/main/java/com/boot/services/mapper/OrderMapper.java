@@ -19,7 +19,7 @@ public class OrderMapper {
 				.setUuid(order.getUuid())
 				.setUser(UserMapper.UserEntityToDto(order.getUser()))
 				.setStatus(order.getStatus())
-				.setProductList(ProductMapper.productEntityToDtoList(order.getProductList()))
+				.setProductMap(ProductMapper.productEntityToDtoMap(order.getProductList()))
 				.setTotal(order.getTotal())
 				.setCompletedOn(order.getLastUpdatedOn());
 	}
@@ -30,7 +30,7 @@ public class OrderMapper {
 				.setUuid(orderDto.getUuid())
 				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
 				.setStatus(orderDto.getStatus())
-				.setProductList(ProductMapper.dtoToProductEntityList(orderDto.getProductList()))
+				.setProductList(ProductMapper.dtoToProductEntityMap(orderDto.getProductMap()))
 				.setTotal(orderDto.getTotal())
 				.setLastUpdatedOn(orderDto.getCompletedOn());
 	}
@@ -41,7 +41,7 @@ public class OrderMapper {
 				.setUuid(orderDto.getUuid())
 				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
 				.setStatus(orderDto.getStatus())
-				.setProductList(ProductMapper.dtoToProductEntityList(orderDto.getProductList()))
+				.setProductList(ProductMapper.dtoToProductEntityMap(orderDto.getProductMap()))
 				.setTotal(orderDto.getTotal())
 				.setLastUpdatedOn(orderDto.getCompletedOn());
 	}

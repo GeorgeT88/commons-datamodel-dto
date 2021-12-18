@@ -1,7 +1,7 @@
 package com.boot.services.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,8 +18,8 @@ public class CartDTO {
 
 	private UserDTO user;
 
-	private List<ProductDTO> productList;
-
+	private Map<ProductDTO, Integer> productMap;
+	
 	private double total;
 
 	private LocalDateTime completedOn;

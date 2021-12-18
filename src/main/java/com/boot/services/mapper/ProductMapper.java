@@ -1,8 +1,10 @@
 package com.boot.services.mapper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.boot.services.dto.ProductDTO;
@@ -22,8 +24,7 @@ public class ProductMapper {
 	}
 
 	public static Product DtoToProductEntity(ProductDTO productDto) {
-		return new Product()
-				.setId(productDto.getId())
+		return new Product().setId(productDto.getId())
 				.setProductName(productDto.getProductName())
 				.setProductDescription(productDto.getProductDescription())
 				.setProductPrice(productDto.getProductPrice())
@@ -42,20 +43,33 @@ public class ProductMapper {
 				.setProductStock(productDto.getProductStock());
 	}
 
-	public static List<ProductDTO> productEntityToDtoList(List<Product> productList) {
+	public static Map<ProductDTO, Integer> productEntityToDtoMap(List<Product> productList) {
 
-		List<ProductDTO> productDTOList = new ArrayList<>();
+		Map<ProductDTO, Integer> productDTOMap = new HashMap<>();
+		for (Product p : productList) {
+			ProductDTO prod= ProductMapper.ProductEntityToDto(p);
+			if(productDTOMap.containsKey(prod)) {
+				Integer value = productDTOMap.get(prod)+1;
+				productDTOMap.put(ProductMapper.ProductEntityToDto(p), value);
+			}else {
+				productDTOMap.put(ProductMapper.ProductEntityToDto(p), 1);
 
-		productList.stream().forEach(p -> productDTOList.add(ProductMapper.ProductEntityToDto(p)));
+			}
+		}
 
-		return productDTOList;
+		return productDTOMap;
 	}
 
-	public static List<Product> dtoToProductEntityList(List<ProductDTO> productDTOList) {
+	public static List<Product> dtoToProductEntityMap(Map<ProductDTO, Integer> productDTOMap) {
 
 		List<Product> productList = new ArrayList<>();
 
-		productDTOList.stream().forEach(pDTO -> productList.add(ProductMapper.DtoToProductEntity(pDTO)));
+		productDTOMap.forEach((k, v) -> {
+
+			for (Integer i = 0; i > v; i++) {
+				productList.add(ProductMapper.DtoToProductEntity(k));
+			}
+		});
 
 		return productList;
 	}
@@ -77,4 +91,5 @@ public class ProductMapper {
 		}
 		return productList;
 	}
+
 }

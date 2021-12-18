@@ -14,21 +14,29 @@ import com.boot.services.model.Cart;
 public class CartMapper {
 
 	public static CartDTO cartEntityToDto(Cart cart) {
-		return new CartDTO().setId(cart.getId()).setUser(UserMapper.UserEntityToDto(cart.getUser()))
-				.setProductList(ProductMapper.productEntityToDtoList(cart.getProductList())).setTotal(cart.getTotal())
+		return new CartDTO()
+				.setId(cart.getId())
+				.setUser(UserMapper.UserEntityToDto(cart.getUser()))
+				.setProductMap(ProductMapper.productEntityToDtoMap(cart.getProductList()))
+				.setTotal(cart.getTotal())
 				.setCompletedOn(cart.getLastUpdatedOn());
 	}
 
 	public static Cart dtoToCartEntity(CartDTO cartDto) {
-		return new Cart().setId(cartDto.getId()).setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
-				.setProductList(ProductMapper.dtoToProductEntityList(cartDto.getProductList()))
-				.setTotal(cartDto.getTotal()).setLastUpdatedOn(cartDto.getCompletedOn());
+		return new Cart()
+				.setId(cartDto.getId())
+				.setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
+				.setProductList(ProductMapper.dtoToProductEntityMap(cartDto.getProductMap()))
+				.setTotal(cartDto.getTotal())
+				.setLastUpdatedOn(cartDto.getCompletedOn());
 	}
 
 	public static Cart updateDtoToCartEntity(Cart cart, CartDTO cartDto) {
-		return cart.setId(cartDto.getId()).setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
-				.setProductList(ProductMapper.dtoToProductEntityList(cartDto.getProductList()))
-				.setTotal(cartDto.getTotal()).setLastUpdatedOn(cartDto.getCompletedOn());
+		return cart.setId(cartDto.getId())
+				.setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
+				.setProductList(ProductMapper.dtoToProductEntityMap(cartDto.getProductMap()))
+				.setTotal(cartDto.getTotal())
+				.setLastUpdatedOn(cartDto.getCompletedOn());
 	}
 
 	public static Set<CartDTO> cartEntityToDtoList(List<Cart> cartList) {
