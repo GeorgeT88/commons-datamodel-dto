@@ -1,7 +1,7 @@
 package com.boot.services.dto;
 
 import java.time.LocalDateTime;
-import java.util.Map;
+import java.util.List;
 import java.util.UUID;
 
 import com.boot.services.model.OrderStatus;
@@ -25,7 +25,7 @@ public class OrderDTO {
 	
 	private OrderStatus status;
 
-	private Map<ProductDTO, Integer> productMap;
+	private List<ProductInCartDTO> productsInCartList;
 
 	private double total;
 

@@ -1,6 +1,8 @@
 package com.boot.services.mapper;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.boot.services.dto.ProductDTO;
+import com.boot.services.dto.ProductInCartDTO;
 import com.boot.services.model.Product;
 
 public class ProductMapper {
@@ -43,9 +46,10 @@ public class ProductMapper {
 				.setProductStock(productDto.getProductStock());
 	}
 
-	public static Map<ProductDTO, Integer> productEntityToDtoMap(List<Product> productList) {
+	public static List<ProductInCartDTO> productEntityToDtoMap(List<Product> productList) {
 
 		Map<ProductDTO, Integer> productDTOMap = new HashMap<>();
+		
 		for (Product p : productList) {
 			ProductDTO prod= ProductMapper.ProductEntityToDto(p);
 			if(productDTOMap.containsKey(prod)) {
@@ -53,23 +57,46 @@ public class ProductMapper {
 				productDTOMap.put(ProductMapper.ProductEntityToDto(p), value);
 			}else {
 				productDTOMap.put(ProductMapper.ProductEntityToDto(p), 1);
-
 			}
 		}
-
-		return productDTOMap;
+		
+	
+		List<ProductInCartDTO> productsInCartList = new ArrayList<>();
+		
+		productDTOMap.forEach((k, v) -> {
+			
+			productsInCartList.add(new ProductInCartDTO()
+					.setProductDto(new ProductDTO()
+					.setId(k.getId())
+					.setProductName(k.getProductName())
+					.setProductDescription(k.getProductDescription())
+					.setProductPrice(k.getProductPrice())
+					.setProductPhotoLink(k.getProductPhotoLink())
+					.setProductCategory(k.getProductCategory())					
+					.setProductStock(k.getProductStock()))
+					.setQuantity(v));		 			
+		});
+			
+			
+		Collections.sort(productsInCartList, new Comparator<ProductInCartDTO>() {
+		    @Override
+		    public int compare(ProductInCartDTO o1, ProductInCartDTO o2) {
+		        return o1.getProductDto().getProductName().compareTo(o2.getProductDto().getProductName());
+		    }
+		});
+		
+		return productsInCartList;
 	}
 
-	public static List<Product> dtoToProductEntityMap(Map<ProductDTO, Integer> productDTOMap) {
+	
+
+
+	
+	public static List<Product> dtoToProductEntityMap(List<ProductInCartDTO> productInCartDTOList) {
 
 		List<Product> productList = new ArrayList<>();
 
-		productDTOMap.forEach((k, v) -> {
-
-			for (Integer i = 0; i > v; i++) {
-				productList.add(ProductMapper.DtoToProductEntity(k));
-			}
-		});
+		productInCartDTOList.stream().forEach(pDTO -> productList.add(ProductMapper.DtoToProductEntity(pDTO.getProductDto())));
 
 		return productList;
 	}
