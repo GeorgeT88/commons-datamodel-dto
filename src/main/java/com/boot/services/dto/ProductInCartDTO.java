@@ -14,5 +14,7 @@ public class ProductInCartDTO {
 	private ProductDTO productDto;
 
 	private int quantity;
+	
+	private long productTotalPrice;
 
 }

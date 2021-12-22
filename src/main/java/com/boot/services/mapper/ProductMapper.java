@@ -74,7 +74,8 @@ public class ProductMapper {
 					.setProductPhotoLink(k.getProductPhotoLink())
 					.setProductCategory(k.getProductCategory())					
 					.setProductStock(k.getProductStock()))
-					.setQuantity(v));		 			
+					.setQuantity(v)
+					.setProductTotalPrice(k.getProductPrice()*v));			        
 		});
 			
 			
