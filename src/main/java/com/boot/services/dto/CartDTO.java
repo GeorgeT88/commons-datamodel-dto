@@ -21,6 +21,4 @@ public class CartDTO {
 	private List<ProductInCartDTO> productsInCartList;
 	
 	private double total;
-
-	private LocalDateTime completedOn;
 }

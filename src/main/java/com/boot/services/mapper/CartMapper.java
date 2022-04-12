@@ -18,8 +18,7 @@ public class CartMapper {
 				.setId(cart.getId())
 				.setUser(UserMapper.UserEntityToDto(cart.getUser()))
 				.setProductsInCartList(ProductMapper.productEntityToDtoMap(cart.getProductList()))
-				.setTotal(cart.getTotal())
-				.setCompletedOn(cart.getLastUpdatedOn());
+				.setTotal(cart.getTotal());
 	}
 
 	public static Cart dtoToCartEntity(CartDTO cartDto) {
@@ -27,16 +26,14 @@ public class CartMapper {
 				.setId(cartDto.getId())
 				.setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
 				.setProductList(ProductMapper.dtoToProductEntityMap(cartDto.getProductsInCartList()))
-				.setTotal(cartDto.getTotal())
-				.setLastUpdatedOn(cartDto.getCompletedOn());
+				.setTotal(cartDto.getTotal());
 	}
 
 	public static Cart updateDtoToCartEntity(Cart cart, CartDTO cartDto) {
 		return cart.setId(cartDto.getId())
 				.setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
 				.setProductList(ProductMapper.dtoToProductEntityMap(cartDto.getProductsInCartList()))
-				.setTotal(cartDto.getTotal())
-				.setLastUpdatedOn(cartDto.getCompletedOn());
+				.setTotal(cartDto.getTotal());
 	}
 
 	public static Set<CartDTO> cartEntityToDtoList(List<Cart> cartList) {

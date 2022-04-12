@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>com.github.GeorgeT88</groupId>
 			<artifactId>commons-datamodel-entity</artifactId>
-			<version>version-1.0</version>
+			<version>version1.1</version>
 		</dependency>
 	</dependencies>
 </project>
