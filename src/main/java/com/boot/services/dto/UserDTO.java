@@ -54,8 +54,6 @@ public class UserDTO {
 	private String role;
 			
 	private Set<ProductDTO> favoriteProductList;
-
-	@NotNull
-	@Pattern(regexp = "^true$|^false$", message = "Allowed input for is Activated: true or false!")
+	
 	private boolean isActivated;
 }
