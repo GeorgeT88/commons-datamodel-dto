@@ -49,8 +49,6 @@ public class UserDTO {
 	@NotNull
 	private String deliveryAddress;
 
-	@NotEmpty
-	@NotNull
 	private String role;
 			
 	private Set<ProductDTO> favoriteProductList;
