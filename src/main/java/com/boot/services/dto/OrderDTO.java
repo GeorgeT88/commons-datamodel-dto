@@ -11,6 +11,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Column;
+
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
@@ -18,6 +20,30 @@ import lombok.experimental.Accessors;
 public class OrderDTO {
 
 	private long id;
+
+	private String firstName;
+
+	private String lastName;
+
+	private String addressLine1;
+
+	private String addressLine2;
+
+	private String city;
+
+	private String state;
+
+	private String zipPostalCode;
+
+	private String country;
+
+	private String nameOnCard;
+
+	private long cardNumber;
+
+	private LocalDateTime expiryDate;
+
+	private int cvv;
 	
 	private UUID uuid;
 
