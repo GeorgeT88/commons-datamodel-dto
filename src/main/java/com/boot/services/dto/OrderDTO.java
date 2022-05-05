@@ -19,8 +19,6 @@ import javax.persistence.Column;
 @AllArgsConstructor
 public class OrderDTO {
 
-	private long id;
-
 	private String firstName;
 
 	private String lastName;
@@ -44,18 +42,4 @@ public class OrderDTO {
 	private LocalDateTime expiryDate;
 
 	private int cvv;
-	
-	private UUID uuid;
-
-	private UserDTO user;
-	
-	private OrderStatus status;
-
-	private List<ProductInCartDTO> productsInCartList;
-
-	private double total;
-
-	private LocalDateTime completedOn;
-
-
 }

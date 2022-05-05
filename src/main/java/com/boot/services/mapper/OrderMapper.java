@@ -9,9 +9,6 @@ import com.boot.services.dto.OrderDTO;
 import com.boot.services.model.Order;
 
 
-
-
-
 public class OrderMapper {
 	private String firstName;
 
@@ -39,7 +36,6 @@ public class OrderMapper {
 
 	public static OrderDTO orderEntityToDto(Order order) {
 		return new OrderDTO()
-				.setId(order.getId())
 				.setFirstName((order.getFirstName()))
 				.setLastName((order.getLastName()))
 				.setAddressLine1((order.getAddressLine1()))
@@ -51,18 +47,11 @@ public class OrderMapper {
 				.setNameOnCard((order.getNameOnCard()))
 				.setCardNumber((order.getCardNumber()))
 				.setExpiryDate((order.getExpiryDate()))
-				.setCvv((order.getCvv()))
-				.setUuid(order.getUuid())
-				.setUser(UserMapper.UserEntityToDto(order.getUser()))
-				.setStatus(order.getStatus())
-				.setProductsInCartList(ProductMapper.productEntityToDtoMap(order.getProductList()))
-				.setTotal(order.getTotal())
-				.setCompletedOn(order.getLastUpdatedOn());
+				.setCvv((order.getCvv()));
 	}
 
 	public static Order dtoToOrderEntity(OrderDTO orderDto) {
 		return new Order()
-				.setId(orderDto.getId())
 				.setFirstName((orderDto.getFirstName()))
 				.setLastName((orderDto.getLastName()))
 				.setAddressLine1((orderDto.getAddressLine1()))
@@ -74,18 +63,12 @@ public class OrderMapper {
 				.setNameOnCard((orderDto.getNameOnCard()))
 				.setCardNumber((orderDto.getCardNumber()))
 				.setExpiryDate((orderDto.getExpiryDate()))
-				.setCvv((orderDto.getCvv()))
-				.setUuid(orderDto.getUuid())
-				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
-				.setStatus(orderDto.getStatus())
-				.setProductList(ProductMapper.dtoToProductEntityMap(orderDto.getProductsInCartList()))
-				.setTotal(orderDto.getTotal())
-				.setLastUpdatedOn(orderDto.getCompletedOn());
+				.setCvv((orderDto.getCvv()));
+
 	}
 
 	public static Order updateDtoToOrderEntity(Order order, OrderDTO orderDto) {
 		return order
-				.setId(orderDto.getId())
 				.setFirstName((order.getFirstName()))
 				.setLastName((order.getLastName()))
 				.setAddressLine1((order.getAddressLine1()))
@@ -97,13 +80,8 @@ public class OrderMapper {
 				.setNameOnCard((order.getNameOnCard()))
 				.setCardNumber((order.getCardNumber()))
 				.setExpiryDate((order.getExpiryDate()))
-				.setCvv((order.getCvv()))
-				.setUuid(orderDto.getUuid())
-				.setUser(UserMapper.DtoToUserEntity(orderDto.getUser()))
-				.setStatus(orderDto.getStatus())
-				.setProductList(ProductMapper.dtoToProductEntityMap(orderDto.getProductsInCartList()))
-				.setTotal(orderDto.getTotal())
-				.setLastUpdatedOn(orderDto.getCompletedOn());
+				.setCvv((order.getCvv()));
+
 	}
 
 	public static Set<OrderDTO> orderEntityToDtoList(List<Order> orderList) {
