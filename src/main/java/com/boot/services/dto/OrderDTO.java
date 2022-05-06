@@ -19,6 +19,8 @@ import javax.persistence.Column;
 @AllArgsConstructor
 public class OrderDTO {
 
+	private UUID uuid;
+
 	private String firstName;
 
 	private String lastName;

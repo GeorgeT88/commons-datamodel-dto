@@ -9,33 +9,14 @@ import com.boot.services.dto.OrderDTO;
 import com.boot.services.model.Order;
 
 
+
+
+
 public class OrderMapper {
-	private String firstName;
-
-	private String lastName;
-
-	private String addressLine1;
-
-	private String addressLine2;
-
-	private String city;
-
-	private String state;
-
-	private String zipPostalCode;
-
-	private String country;
-
-	private String nameOnCard;
-
-	private long cardNumber;
-
-	private LocalDateTime expiryDate;
-
-	private int cvv;
 
 	public static OrderDTO orderEntityToDto(Order order) {
 		return new OrderDTO()
+				.setUuid(order.getUuid())
 				.setFirstName((order.getFirstName()))
 				.setLastName((order.getLastName()))
 				.setAddressLine1((order.getAddressLine1()))
@@ -52,6 +33,7 @@ public class OrderMapper {
 
 	public static Order dtoToOrderEntity(OrderDTO orderDto) {
 		return new Order()
+				.setUuid(orderDto.getUuid())
 				.setFirstName((orderDto.getFirstName()))
 				.setLastName((orderDto.getLastName()))
 				.setAddressLine1((orderDto.getAddressLine1()))
@@ -69,6 +51,7 @@ public class OrderMapper {
 
 	public static Order updateDtoToOrderEntity(Order order, OrderDTO orderDto) {
 		return order
+				.setUuid(order.getUuid())
 				.setFirstName((order.getFirstName()))
 				.setLastName((order.getLastName()))
 				.setAddressLine1((order.getAddressLine1()))
@@ -81,7 +64,6 @@ public class OrderMapper {
 				.setCardNumber((order.getCardNumber()))
 				.setExpiryDate((order.getExpiryDate()))
 				.setCvv((order.getCvv()));
-
 	}
 
 	public static Set<OrderDTO> orderEntityToDtoList(List<Order> orderList) {
