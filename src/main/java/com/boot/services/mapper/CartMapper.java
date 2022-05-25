@@ -7,16 +7,12 @@ import java.util.Set;
 import com.boot.services.dto.CartDTO;
 import com.boot.services.model.Cart;
 
-
-
-
-
 public class CartMapper {
 
 	public static CartDTO cartEntityToDto(Cart cart) {
 		return new CartDTO()
 				.setId(cart.getId())
-				.setUser(UserMapper.UserEntityToDto(cart.getUser()))
+				.setUser(UserMapper.userEntityToDto(cart.getUser()))
 				.setProductsInCartList(ProductMapper.productEntityToDtoMap(cart.getProductList()))
 				.setTotal(cart.getTotal());
 	}
@@ -24,14 +20,14 @@ public class CartMapper {
 	public static Cart dtoToCartEntity(CartDTO cartDto) {
 		return new Cart()
 				.setId(cartDto.getId())
-				.setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
+				.setUser(UserMapper.dtoToUserEntity(cartDto.getUser()))
 				.setProductList(ProductMapper.dtoToProductEntityMap(cartDto.getProductsInCartList()))
 				.setTotal(cartDto.getTotal());
 	}
 
 	public static Cart updateDtoToCartEntity(Cart cart, CartDTO cartDto) {
 		return cart.setId(cartDto.getId())
-				.setUser(UserMapper.DtoToUserEntity(cartDto.getUser()))
+				.setUser(UserMapper.dtoToUserEntity(cartDto.getUser()))
 				.setProductList(ProductMapper.dtoToProductEntityMap(cartDto.getProductsInCartList()))
 				.setTotal(cartDto.getTotal());
 	}
