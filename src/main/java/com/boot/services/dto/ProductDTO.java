@@ -1,10 +1,14 @@
 package com.boot.services.dto;
 
+import com.boot.services.enums.ProductStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
@@ -37,4 +41,8 @@ public class ProductDTO {
 
 	@Positive(message = "Product stock should be positive number!")
 	private int productStock;
+
+	@Enumerated(EnumType.STRING)
+	@Column
+	private ProductStatus status;
 }
